@@ -1,0 +1,51 @@
+NAME
+    ToyBox::XS::LogisticModel - Discriminant Analysis with Logistic Model
+
+SYNOPSIS
+      use ToyBox::XS::LogisticModel;
+
+      my $lm = ToyBox::XS::LogisticModel->new();
+  
+      $lm->add_instance(
+          attributes => {a => 2, b => 3},
+          label => 'positive'
+      );
+  
+      $lm->add_instance(
+          attributes => {c => 3, d => 1},
+          label => 'negative'
+      );
+  
+      $lm->train(max_iterations => 100, max_linesearch => 20);
+  
+      my $probs = $lm->predict(
+                      attributes => {a => 1, b => 1, d => 1, e =>1}
+                  );
+
+DESCRIPTION
+    This module implements a logistic model.
+
+AUTHOR
+    TAGAMI Yukihiro <tagami.yukihiro@gmail.com>
+
+LICENSE
+    Copyright (C) 1990, Jorge Nocedal
+
+    Copyright (C) 2007, Naoaki Okazaki
+
+    Copyright (C) 2011, TAGAMI Yukihiro
+
+    This software is distributed under the term of the MIT license.
+
+    <http://opensource.org/licenses/mit-license.php>
+
+REFERENCE
+     J. Nocedal. Updating Quasi-Newton Matrices with Limited Storage (1980)
+    , Mathematics of Computation 35, pp. 773-782.
+     D.C. Liu and J. Nocedal. On the Limited Memory Method for Large Scale
+    Optimization (1989), Mathematical Programming B, 45, 3, pp. 503-528.
+     Jorge Nocedal's Fortran 77 implementation,
+    <http://www.ece.northwestern.edu/~nocedal/lbfgs.html>
+     Naoaki Okazaki's C implementation (liblbfgs),
+    <http://www.chokkan.org/software/liblbfgs/index.html>
+
